@@ -29,6 +29,21 @@ A Python static-server alternative is also available: `python3 -m http.server 41
 - Dedicated daily-absence and canteen email preview flows with recipients, subject/message editing, provisional-report checks, resend history, and explicit confirmation.
 - Employee Master, departments, shifts, import mapping preview, user/permission screens, report views, audit log, and settings/backup screens.
 - CSV exports, mobile-responsive layout, and browser-local persistence using `localStorage`.
+- Reference SQLite schema and seed data in `database/schema.sql` and `database/seed.sql`.
+
+## Database files
+
+- `database/schema.sql` creates the relational tables, indexes, constraints, audit/workflow history, and department/canteen reporting views.
+- `database/seed.sql` inserts roles, the 27 departments, four shifts, canteen categories, email templates, and baseline settings. It intentionally creates no default account or password.
+
+Apply them to a SQLite database in order with:
+
+```sh
+sqlite3 yd.db < database/schema.sql
+sqlite3 yd.db < database/seed.sql
+```
+
+These SQL files are schema/seed groundwork only; the current web prototype does not connect to the database yet.
 
 ## Prototype and production boundary
 
