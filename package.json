@@ -4,7 +4,8 @@
   "private": true,
   "description": "YD daily attendance, absence and canteen reporting web prototype",
   "scripts": {
-    "start": "node server.js",
+    "start": "python3 -u server.py",
+    "static": "node server.js",
     "test": "node --test"
   },
   "engines": {

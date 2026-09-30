@@ -51,6 +51,8 @@ function createServer() {
     if (pathname.includes('\0') || pathname.split('/').some((part) => part === '.' || part === '..')) {
       return send(res, 400, 'Invalid path');
     }
+    const publicFiles = new Set(['/index.html','/app.js','/auth.js','/styles.css','/auth.css','/print.css']);
+    if (!publicFiles.has(pathname)) return send(res, 404, 'Not found');
 
     const filePath = path.resolve(ROOT, `.${pathname}`);
     if (!filePath.startsWith(`${ROOT}${path.sep}`)) return send(res, 403, 'Forbidden');

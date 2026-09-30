@@ -56,6 +56,16 @@ CREATE TABLE IF NOT EXISTS users (
 );
 CREATE INDEX IF NOT EXISTS idx_users_department ON users(assigned_department_id);
 
+CREATE TABLE IF NOT EXISTS sessions (
+  session_id INTEGER PRIMARY KEY,
+  token_hash TEXT NOT NULL UNIQUE,
+  csrf_hash TEXT NOT NULL,
+  user_id INTEGER NOT NULL REFERENCES users(user_id) ON DELETE CASCADE,
+  expires_at INTEGER NOT NULL,
+  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+CREATE INDEX IF NOT EXISTS idx_sessions_expiry ON sessions(expires_at);
+
 CREATE TABLE IF NOT EXISTS employees (
   employee_no TEXT PRIMARY KEY,
   employee_name TEXT NOT NULL,
@@ -99,6 +109,7 @@ CREATE TABLE IF NOT EXISTS attendance_submissions (
   total_strength INTEGER NOT NULL DEFAULT 0 CHECK (total_strength >= 0),
   present_count INTEGER NOT NULL DEFAULT 0 CHECK (present_count >= 0),
   absent_count INTEGER NOT NULL DEFAULT 0 CHECK (absent_count >= 0),
+  overtime_count INTEGER NOT NULL DEFAULT 0 CHECK (overtime_count >= 0),
   approved_leave_count INTEGER NOT NULL DEFAULT 0 CHECK (approved_leave_count >= 0),
   other_attendance_count INTEGER NOT NULL DEFAULT 0 CHECK (other_attendance_count >= 0),
   lunch_overtime_count INTEGER NOT NULL DEFAULT 0 CHECK (lunch_overtime_count >= 0),
