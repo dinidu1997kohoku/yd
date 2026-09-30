@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#12263a" />
+  <title>YD Daily Attendance, Absence and Canteen Reporting System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="print.css" media="print" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><div class="brand-mark">YD</div><div class="brand-name">YD <span>Operations</span><small>PEOPLE &amp; DAILY SERVICES</small></div><button class="sidebar-close" id="sidebarClose" aria-label="Close menu">×</button></div>
+      <div class="org-switch"><div class="org-avatar">Y</div><div><strong>YD Manufacturing</strong><small>Daily operations</small></div><span class="chevron">⌄</span></div>
+      <nav class="nav" id="mainNav" aria-label="Main menu">
+        <div class="nav-label">WORKSPACE</div>
+        <button class="nav-item active" data-page="dashboard"><span class="nav-icon">◫</span>Dashboard</button>
+        <button class="nav-item" data-page="attendance"><span class="nav-icon">▤</span>Daily attendance entry</button>
+        <button class="nav-item" data-page="absence"><span class="nav-icon">◷</span>Absence reporting <span class="nav-count">3</span></button>
+        <button class="nav-item" data-page="overtime"><span class="nav-icon">◴</span>Overtime</button>
+        <button class="nav-item" data-page="canteen"><span class="nav-icon">♨</span>Canteen requirements</button>
+        <button class="nav-item" data-page="tomorrow"><span class="nav-icon">◷</span>Tomorrow plan</button>
+        <div class="nav-label nav-label-gap">COORDINATION</div>
+        <button class="nav-item" data-page="submissions"><span class="nav-icon">▦</span>Department submissions <span class="nav-count orange">4</span></button>
+        <button class="nav-item" data-page="review"><span class="nav-icon">✓</span>Supervisor review</button>
+        <button class="nav-item" data-page="hr"><span class="nav-icon">◎</span>YD HR coordination</button>
+        <button class="nav-item" data-page="missing"><span class="nav-icon">!</span>Missing submissions <span class="nav-count orange">4</span></button>
+        <button class="nav-item" data-page="absent-summary"><span class="nav-icon">▧</span>Daily absent summary</button>
+        <button class="nav-item" data-page="notifications"><span class="nav-icon">♧</span>Notifications</button>
+        <button class="nav-item" data-page="reports"><span class="nav-icon">▧</span>Reports &amp; analytics</button>
+        <button class="nav-item" data-page="final-reports"><span class="nav-icon">▤</span>Final reports</button>
+        <div class="nav-label nav-label-gap">REPORT DELIVERY</div>
+        <button class="nav-item" data-page="email-absent"><span class="nav-icon">↗</span>Send daily absent report</button>
+        <button class="nav-item" data-page="email-canteen"><span class="nav-icon">↗</span>Send canteen report</button>
+        <button class="nav-item" data-page="email-history"><span class="nav-icon">◫</span>Email history</button>
+        <div class="nav-label nav-label-gap">ADMINISTRATION</div>
+        <button class="nav-item" data-page="employees"><span class="nav-icon">♙</span>Employees</button>
+        <button class="nav-item" data-page="departments"><span class="nav-icon">▥</span>Departments &amp; lines</button>
+        <button class="nav-item" data-page="shifts"><span class="nav-icon">◷</span>Shifts</button>
+        <button class="nav-item" data-page="import"><span class="nav-icon">⇧</span>Excel import</button>
+        <button class="nav-item" data-page="users"><span class="nav-icon">♧</span>Users &amp; permissions</button>
+        <button class="nav-item" data-page="audit"><span class="nav-icon">≋</span>Audit log</button>
+        <button class="nav-item" data-page="settings"><span class="nav-icon">⚙</span>System settings</button>
+        <button class="nav-item" data-page="backups"><span class="nav-icon">▣</span>Backup &amp; recovery</button>
+      </nav>
+      <div class="sidebar-bottom"><div class="help-card"><div class="help-icon">?</div><div><strong>Need a hand?</strong><small>Visit the help centre</small></div><span>↗</span></div><div class="sidebar-user"><div class="user-avatar">AK</div><div class="user-meta"><strong>Amaya K.</strong><small>YD HR Coordinator</small></div><button class="more-button" aria-label="User menu">•••</button></div></div>
+    </aside>
+    <main class="main-area">
+      <header class="topbar"><button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button><div class="breadcrumb"><span>YD Operations</span><b>/</b><strong id="crumbCurrent">Dashboard</strong></div><div class="top-actions"><label class="global-search"><span>⌕</span><input id="globalSearch" type="search" placeholder="Search anything..." /><kbd>⌘ K</kbd></label><button class="icon-button notification-button" id="notificationsBtn" title="Notifications">♧<i></i></button><div class="top-divider"></div><div class="top-user"><div class="user-avatar small">AK</div><div><strong>Amaya K.</strong><small id="roleCaption">YD HR Coordinator</small></div><select id="roleSelect" title="Preview role"><option>YD HR Coordinator</option><option>Department User</option><option>Department Supervisor</option><option>HR Manager</option><option>Canteen User</option><option>System Administrator</option></select></div></div></header>
+      <section class="page-content" id="pageContent"></section>
+      <footer class="app-footer"><span>YD Daily Operations <b>·</b> Internal workspace</span><span>Secure workspace <i class="secure-dot"></i></span></footer>
+    </main>
+  </div>
+  <div id="modalRoot"></div>
+  <div id="toastRoot" class="toast-root" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>

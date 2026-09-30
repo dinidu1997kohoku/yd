@@ -1,0 +1,13 @@
+{
+  "name": "yd-daily-attendance-canteen",
+  "version": "0.1.0",
+  "private": true,
+  "description": "YD daily attendance, absence and canteen reporting web prototype",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
